@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <title>Codespace Github</title>
+        <link href="index.css" rel="stylesheet" type="text/css" />
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+        <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    </head>
+
+    <body>
+        <img id="bg" src="/backGround.png" alt = "homeBg"> 
+        <div>
+            <h1 id = "title" class = "overlapButton">Title</h1>
+            <button class = "overlapButton" style= "top: 43%;" onclick= "window.location.href = '/game/gamePlay/gamePlay.html'" >play</button>
+            <button class = "overlapButton" style= "top: 53%;" onclick=" window.location.href = '/controls/controls.html'">controls</button>
+            <button class = "overlapButton" style= "top: 63%;" onclick=" window.location.href = '/credits/credits.html'">credits</button>
+            <button class = "overlapButton" style= "top: 73%;" onclick=" window.location.href = '/game/gameOver/gameOver.html'">Shortcut</button>
+            <button class = "overlapButton" style= "top: 83%;" onclick= "resetStorage()">resetStorage</button>
+        </div>
+    </body>
+
+    <script>
+        window.resetStorage  = resetStorage;
+        
+        function resetStorage(){
+            console.log("reset")
+            localStorage.setItem("highScore", null);
+            localStorage.setItem("currentScore", null);
+        }
+    </script>
+</html>
