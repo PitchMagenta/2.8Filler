@@ -1,0 +1,58 @@
+:root {
+  --titleB: 27%;
+  --titleA: 2%;
+  --scoresInt: 8%;
+  --scoresA: 32%;
+  --buttonInt: 12%;
+}
+
+/*Border*/
+*{
+  margin: 0;
+  padding: 0;
+ }
+ 
+/*bg img  */
+#bg{
+    width:100vw;
+    height: 99vh;
+
+}
+
+#title {
+  font-size: 130px;
+  top:  var(--titleB);
+}
+ 
+#highScore {
+   font-size: 60px;
+   top: calc(var(--titleB) + var(--titleA) + var(--scoresInt));
+}
+
+#currentScore {
+  font-size: 60px;
+  top: calc(var(--titleB) + var(--titleA) + var(--scoresInt) * 2);
+}
+
+#restart {
+  top: calc(var(--titleB) + var(--titleA) + var(--scoresInt) * 2 + var(--buttonInt));
+}
+
+#menu {
+  top: calc(var(--titleB) + var(--titleA) + var(--scoresInt) * 2 + var(--buttonInt) * 2);
+}
+
+.overlapButton {
+  font-family: 'Brush Script MT';
+  font-size: 40px;
+  left: 50%;
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: #fdff8f;
+  background-color: transparent;
+  outline: none;
+  border: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}

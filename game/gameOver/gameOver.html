@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Codespace Github</title>
+        <link href="./gameOver.css" rel="stylesheet" type="text/css" />
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+        <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    </head>
+    
+    <body>
+        <img id="bg" src="./endScreen.png" alt = "gameOverBg"> 
+        <div>
+            <h1 id = "title" class = "overlapButton">Level Completed</h1>
+            <p id = "highScore" class = "overlapButton">Old High Time: 'n/a'</p>
+            <p id = "currentScore" class = "overlapButton">Time: 'n/a'</p>
+            <button id = "restart" class = "overlapButton" onclick= "window.location.href = '/game/gamePlay/gamePlay.html'" >Try again</button>
+            <button id = "menu" class = "overlapButton" onclick=" window.location.href = '/index.html'">Back to menu</button>
+        </div>
+    </body>
+    
+    <script>
+        const CURRENTSCORE = document.querySelector('#currentScore');
+        const HIGHSCORE = document.querySelector('#highScore');
+        const currentScore = JSON.parse(localStorage.getItem("currentScore"));
+        const highScore = JSON.parse(localStorage.getItem("highScore"));
+        console.log("currentScore: " + currentScore) 
+        console.log("highScore: " + highScore) 
+
+        if ((currentScore != null) ){
+            if(currentScore < highScore){
+                CURRENTSCORE.textContent = "Time: " + Math.floor(currentScore/60) + ":" + currentScore % 60;
+                HIGHSCORE.textContent = "Old Record: " + Math.floor(highScore/60) + ":" + highScore % 60;
+                localStorage.setItem('highScore', currentScore)
+            } else {
+                CURRENTSCORE.textContent = ("Time: " + Math.floor(currentScore/60) + ":" + currentScore % 60);
+                HIGHSCORE.textContent = "Lowest time (Time: " + highScore + ")";
+                if ((highScore == null) ){
+                    localStorage.setItem('highScore', currentScore)
+                }
+            }
+        } else {
+            console.log("error: currentScore == null || highScore == null ")
+        }
+        </script>
+    </html>
